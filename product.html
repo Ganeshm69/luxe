@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUXE — Product Details</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo">LUXE</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="custom-cursor" id="cursor"></div>
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-ring" id="cursorRing"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#collections" class="nav-link">Shop</a>
+      <a href="orders.html" class="nav-link">Orders</a>
+    </div>
+    <div class="nav-logo">LUXE</div>
+    <div class="nav-right">
+      <a href="#" class="nav-link" id="navContact">Contact</a>
+      <button class="nav-icon" id="cartBtn" title="Cart">
+        <i class="fas fa-bag-shopping"></i>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-icon" id="userBtn" title="Account"><i class="far fa-user"></i></button>
+    </div>
+  </nav>
+
+  <!-- PRODUCT DETAILS CONTAINER -->
+  <section class="pdp-section" id="productDetail" style="margin-top: 100px; min-height: 80vh; padding: 2rem 3rem;">
+    <div class="back-nav" style="margin-bottom: 2rem;">
+      <a href="index.html#collections" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Catalog</a>
+    </div>
+    <!-- Populated by JS -->
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">LUXE</div>
+        <p>Luxury fashion for the discerning few.<br />Crafted with intention.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 LUXE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button onclick="closeCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+      <button class="btn-primary full-width" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+  </aside>
+  
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+  <div class="modal checkout-modal" id="checkoutModal">
+    <button class="modal-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+    <div class="checkout-content">
+      <h3>Shipping Details</h3>
+      <p class="checkout-sub">Enter your information to complete the order</p>
+      <div class="checkout-form">
+        <div class="form-group"><input type="text" id="shipName" placeholder="Full Name" /></div>
+        <div class="form-group"><input type="tel" id="shipPhone" placeholder="Phone Number" /></div>
+        <div class="form-group"><textarea id="shipAddress" placeholder="Shipping Address"></textarea></div>
+        <div class="form-row">
+          <input type="text" id="shipCity" placeholder="City" />
+          <input type="text" id="shipPin" placeholder="PIN Code" />
+        </div>
+        <div class="order-summary-mini">
+          <span>Order Total:</span>
+          <span id="checkoutTotalVal">₹0</span>
+        </div>
+        <button class="btn-primary full-width" onclick="confirmOrder()">Confirm Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTH MODAL -->
+  <div class="modal-overlay" id="authOverlay" onclick="closeAuth()"></div>
+  <div class="modal auth-modal-unique" id="authModal">
+    <button class="modal-close" onclick="closeAuth()"><i class="fas fa-times"></i></button>
+    <div class="auth-container">
+      <div class="auth-visual">
+        <div class="auth-visual-content">
+          <div class="nav-logo" style="margin-bottom: 2rem;">LUXE</div>
+          <h2 id="authVisualTitle">Welcome<br/><em>Back</em></h2>
+          <p id="authVisualSub">Step into the circle of exclusive luxury fashion.</p>
+        </div>
+        <div class="auth-visual-img"></div>
+      </div>
+      <div class="auth-forms-wrap">
+        <div class="auth-tabs-unique">
+          <button class="auth-tab-btn active" id="loginTab" onclick="switchAuth('login')">Sign In</button>
+          <button class="auth-tab-btn" id="registerTab" onclick="switchAuth('register')">Join Us</button>
+        </div>
+        <div class="auth-form-slider" id="authSlider">
+          <div class="auth-form-box" id="loginForm">
+            <div class="form-header"><h3>Login</h3><p>Enter details to continue.</p></div>
+            <div class="form-body">
+              <div class="input-group-unique"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com" /></div>
+              <div class="input-group-unique"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••" /></div>
+              <button class="btn-primary full-width auth-submit" onclick="loginUser()">Sign In</button>
+              <p class="auth-msg" id="loginMsg"></p>
+            </div>
+          </div>
+          <div class="auth-form-box" id="registerForm" style="display:none">
+            <div class="form-header"><h3>Join LUXE</h3><p>Create your account.</p></div>
+            <div class="form-body">
+              <div class="input-group-unique"><label>Name</label><input type="text" id="regName" placeholder="Full Name" /></div>
+              <div class="input-group-unique"><label>Email</label><input type="email" id="regEmail" placeholder="your@email.com" /></div>
+              <div class="input-group-unique"><label>Password</label><input type="password" id="regPassword" placeholder="••••••••" /></div>
+              <button class="btn-primary full-width auth-submit" onclick="registerUser()">Create Account</button>
+              <p class="auth-msg" id="registerMsg"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()" title="Back to Top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

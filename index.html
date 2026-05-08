@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUXE — Luxury Fashion</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo">LUXE</div>
+    <p class="loader-text">THE LUXURY FASHION</p>
+    <div class="loader-bar">
+      <div class="loader-fill"></div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="custom-cursor" id="cursor"></div>
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-ring" id="cursorRing"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="#collections" class="nav-link">Collections</a>
+      <a href="orders.html" class="nav-link">Orders</a>
+    </div>
+    <div class="nav-logo">LUXE</div>
+    <div class="nav-right">
+      <a href="#" class="nav-link" id="navContact">Contact</a>
+      <button class="nav-icon" id="cartBtn" title="Cart">
+        <i class="fas fa-bag-shopping"></i>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-icon" id="userBtn" title="Account"><i class="far fa-user"></i></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-unique" id="home">
+    <div class="hero-parallax-bg" style="background-image: url('luxe_hero_bg_1778240339184.png')"></div>
+    <div class="hero-overlay-unique"></div>
+
+    <div class="hero-side-text">EST. 2026 — PARIS / MILAN</div>
+
+    <div class="hero-content-unique">
+      <div class="hero-badge-wrap">
+        <span class="hero-badge">NEW COLLECTION</span>
+      </div>
+      <h1 class="hero-title-unique">Modern<br /><em>Opulence</em></h1>
+      <p class="hero-sub-unique">Redefining the silhouette of silence through<br />conscious craftsmanship and timeless
+        design.</p>
+      <div class="hero-actions-unique">
+        <button class="btn-primary-unique" onclick="scrollToSection('collections')">View Collection</button>
+        <button class="btn-outline-unique" onclick="scrollToSection('editorial')">Our Story</button>
+      </div>
+    </div>
+
+    <div class="hero-vertical-marquee">
+      <div class="v-marquee-track">
+        <span>SS2026</span><span>✦</span><span>LUXE</span><span>✦</span><span>SS2026</span><span>✦</span><span>LUXE</span><span>✦</span>
+      </div>
+    </div>
+
+    <div class="hero-scroll-unique">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY SHOWCASE -->
+  <section class="category-showcase" id="categories">
+    <div class="showcase-grid">
+      <div class="showcase-card reveal" onclick="window.location.href='index.html?filter=Women#collections'">
+        <div class="showcase-img"
+          style="background-image: url('https://i.pinimg.com/736x/4f/10/ef/4f10ef9879cbc0ce283631222c819271.jpg')">
+        </div>
+        <div class="showcase-content">
+          <h3>Women</h3>
+          <p>The essence of grace</p>
+          <span class="showcase-link">Explore <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="showcase-card reveal" onclick="window.location.href='index.html?filter=Men#collections'">
+        <div class="showcase-img"
+          style="background-image: url('https://i.pinimg.com/1200x/ec/7b/98/ec7b98e815a47ee0722737bd4181e597.jpg')">
+        </div>
+        <div class="showcase-content">
+          <h3>Men</h3>
+          <p>Defined by detail</p>
+          <span class="showcase-link">Explore <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>NEW ARRIVALS</span><span class="dot">✦</span>
+      <span>EXCLUSIVE DROPS</span><span class="dot">✦</span>
+      <span>SS 2026</span><span class="dot">✦</span>
+      <span>LUXURY FASHION</span><span class="dot">✦</span>
+      <span>NEW ARRIVALS</span><span class="dot">✦</span>
+      <span>EXCLUSIVE DROPS</span><span class="dot">✦</span>
+      <span>SS 2026</span><span class="dot">✦</span>
+      <span>LUXURY FASHION</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+
+  <!-- PRODUCTS -->
+  <section class="collection-section" id="collections">
+    <div class="section-header">
+      <p class="section-eyebrow">New Season</p>
+      <h2 class="section-title">Featured Pieces</h2>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="All">All</button>
+      <button class="filter-btn" data-filter="Women">Women</button>
+      <button class="filter-btn" data-filter="Men">Men</button>
+      <button class="filter-btn" data-filter="Premium">Premium</button>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- EDITORIAL BANNER -->
+  <section class="editorial" id="editorial">
+    <div class="editorial-text">
+      <p class="section-eyebrow">unique style </p>
+      <h2>Less is the new<br /><em>extravagance.</em></h2>
+      <p class="editorial-body">Every stitch a statement. Every silhouette a story. LUXE is not about what you wear — it
+        is about who you become.<br>
+        Modest Mermaid Off The Shoulder One Shoulder Dark Green Long Formal Gown Slit Prom Dresses Evening Gowns HZ0311
+        Flowing wide-leg trousers in black crepe. Designed for women who move with intention.</p>
+    </div>
+    <div class="editorial-visual">
+      <div class="editorial-frame">
+        <div class="editorial-img-placeholder">
+          <img src="https://i.pinimg.com/736x/3a/77/7b/3a777bccb7f9f1de2d368d0d3f82427a.jpg" alt="Editorial"
+            style="width:100%;height:100%;object-fit:contain;border-radius:12px;" />
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <p class="section-eyebrow">Stay in the circle</p>
+    <h2>First Access. Always.</h2>
+    <p>Join the LUXE inner circle for exclusive drops, editorial content, and private events.</p>
+    <div class="newsletter-form">
+      <input type="email" id="emailInput" placeholder="your@email.com" />
+      <button class="btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+    <p class="newsletter-note" id="newsletterMsg"></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">LUXE</div>
+        <p>Luxury fashion for the discerning few.<br />Crafted with intention.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#" class="footer-link" data-footer="Women">Women</a>
+          <a href="#" class="footer-link" data-footer="Men">Men</a>
+          <a href="#" class="footer-link" data-footer="Premium">Premium</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+
+          <div style="margin-top:1.2rem;font-size:12px;color:var(--muted);">
+            <strong>LUXE FASHION</strong><br>
+            richmenz complex,<br>
+            coimbatore,tamil nadu.<br>
+            contact@luxe.com<br>
+            +91 9025693882
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#" class="footer-link" data-footer="Contact">Contact</a>
+          <a href="#" class="footer-link" data-footer="Returns">Returns</a>
+          <a href="#" class="footer-link" data-footer="Shipping">Shipping</a>
+          <a href="#" class="footer-link" data-footer="FAQ">FAQ</a>
+          <a href="#" class="footer-link" data-footer="Order Tracking">Order Tracking</a>
+          <a href="#" class="footer-link" data-footer="Size Guide">Size Guide</a>
+          <div style="margin-top:1.2rem;">
+            <strong>Follow Us</strong><br>
+            <a href="#" style="display:inline-block;margin-right:8px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="display:inline-block;margin-right:8px;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="display:inline-block;margin-right:8px;"><i class="fab fa-pinterest"></i></a>
+            <a href="#" style="display:inline-block;"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 LUXE. All rights reserved.</p>
+      <p>Privacy Policy · Terms of Service</p>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button onclick="closeCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <i class="fas fa-bag-shopping"></i>
+        <p>Your bag is empty</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn-primary full-width" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+  <div class="modal checkout-modal" id="checkoutModal">
+    <button class="modal-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+    <div class="checkout-content">
+      <h3>Shipping Details</h3>
+      <p class="checkout-sub">Enter your information to complete the order</p>
+
+      <div class="checkout-form">
+        <div class="form-group">
+          <input type="text" id="shipName" placeholder="Full Name" />
+        </div>
+        <div class="form-group">
+          <input type="tel" id="shipPhone" placeholder="Phone Number" />
+        </div>
+        <div class="form-group">
+          <textarea id="shipAddress" placeholder="Shipping Address"></textarea>
+        </div>
+        <div class="form-row">
+          <input type="text" id="shipCity" placeholder="City" />
+          <input type="text" id="shipPin" placeholder="PIN Code" />
+        </div>
+
+        <div class="order-summary-mini">
+          <span>Order Total:</span>
+          <span id="checkoutTotalVal">₹0</span>
+        </div>
+
+        <button class="btn-primary full-width" onclick="confirmOrder()">Confirm Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT QUICK VIEW MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+  <div class="modal" id="productModal">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- AUTH MODAL -->
+  <div class="modal-overlay" id="authOverlay" onclick="closeAuth()"></div>
+  <div class="modal auth-modal-unique" id="authModal">
+    <button class="modal-close" onclick="closeAuth()"><i class="fas fa-times"></i></button>
+    <div class="auth-container">
+      <div class="auth-visual">
+        <div class="auth-visual-content">
+          <div class="nav-logo" style="margin-bottom: 2rem;">LUXE</div>
+          <h2 id="authVisualTitle">Welcome<br /><em>Back</em></h2>
+          <p id="authVisualSub">Step into the circle of exclusive luxury fashion.</p>
+        </div>
+        <div class="auth-visual-img"></div>
+      </div>
+      <div class="auth-forms-wrap">
+        <div class="auth-tabs-unique">
+          <button class="auth-tab-btn active" id="loginTab" onclick="switchAuth('login')">Sign In</button>
+          <button class="auth-tab-btn" id="registerTab" onclick="switchAuth('register')">Join Us</button>
+        </div>
+        <div class="auth-form-slider" id="authSlider">
+          <!-- LOGIN FORM -->
+          <div class="auth-form-box" id="loginForm">
+            <div class="form-header">
+              <h3>Login to Your Account</h3>
+              <p>Enter your details to continue your journey.</p>
+            </div>
+            <div class="form-body">
+              <div class="input-group-unique">
+                <label>Email Address</label>
+                <input type="email" id="loginEmail" placeholder="enter your email address" />
+              </div>
+              <div class="input-group-unique">
+                <label>Password</label>
+                <input type="password" id="loginPassword" placeholder="enter your password" />
+              </div>
+              <div class="form-options">
+                <label class="checkbox-wrap">
+                  <input type="checkbox" checked>
+                  <span class="checkmark"></span>
+                  Remember Me
+                </label>
+                <a href="#" class="forgot-link" onclick="switchAuth('forgot')">Forgot
+                  Password?</a>
+              </div>
+              <button class="btn-primary full-width auth-submit" onclick="loginUser()">Sign In</button>
+              <p class="auth-msg" id="loginMsg"></p>
+            </div>
+          </div>
+
+          <!-- REGISTER FORM -->
+          <div class="auth-form-box" id="registerForm" style="display:none">
+            <div class="form-header">
+              <h3>Create Your Account</h3>
+              <p>Be the first to access exclusive collections.</p>
+            </div>
+            <div class="form-body">
+              <div class="input-group-unique">
+                <label>Full Name</label>
+                <input type="text" id="regName" placeholder=" Your Full Name" />
+              </div>
+              <div class="input-group-unique">
+                <label>Email Address</label>
+                <input type="email" id="regEmail" placeholder="enter your email address" />
+              </div>
+              <div class="input-group-unique">
+                <label>Create Password</label>
+                <input type="password" id="regPassword" placeholder="enter your password" />
+              </div>
+              <p class="terms-text">By joining, you agree to our <span>Terms</span> and <span>Privacy Policy</span>.</p>
+              <button class="btn-primary full-width auth-submit" onclick="registerUser()">Create Account</button>
+              <p class="auth-msg" id="registerMsg"></p>
+            </div>
+          </div>
+
+          <!-- FORGOT PASSWORD FORM -->
+          <div class="auth-form-box" id="forgotForm" style="display:none">
+            <div class="form-header">
+              <h3>Reset Your Password</h3>
+              <p>Enter your email to receive a secure reset link.</p>
+            </div>
+            <div class="form-body">
+              <div class="input-group-unique">
+                <label>Email Address</label>
+                <input type="email" id="forgotEmail" placeholder="enter your email address" />
+              </div>
+              <button class="btn-primary full-width auth-submit" onclick="sendResetLink()">Send Reset Link</button>
+              <div style="text-align:center; margin-top: 1.5rem;">
+                <a href="#" class="forgot-link" onclick="switchAuth('login')">Back to Login</a>
+              </div>
+              <p class="auth-msg" id="forgotMsg"></p>
+            </div>
+          </div>
+
+          <!-- RESET PASSWORD FORM (CONFIRM) -->
+          <div class="auth-form-box" id="resetForm" style="display:none">
+            <div class="form-header">
+              <h3>New Password</h3>
+              <p>Choose a secure new password for your account.</p>
+            </div>
+            <div class="form-body">
+              <div class="input-group-unique">
+                <label>New Password</label>
+                <input type="password" id="newPassword" placeholder="enter new password" />
+              </div>
+              <div class="input-group-unique">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmNewPassword" placeholder="confirm new password" />
+              </div>
+              <button class="btn-primary full-width auth-submit" id="resetSubmitBtn" onclick="confirmReset()">Update
+                Password</button>
+              <p class="auth-msg" id="resetMsg"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPORT MODAL -->
+  <div class="modal-overlay" id="supportOverlay" onclick="closeSupport()"></div>
+  <div class="modal support-modal" id="supportModal">
+    <button class="modal-close" onclick="closeSupport()"><i class="fas fa-times"></i></button>
+    <div class="support-content" id="supportContent">
+      <!-- Dynamic Content -->
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()" title="Back to Top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
